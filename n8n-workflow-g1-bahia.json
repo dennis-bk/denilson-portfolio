@@ -1,0 +1,293 @@
+{
+  "name": "G1 Bahia - Agregador de Noticias",
+  "nodes": [
+    {
+      "id": "rss-bahia",
+      "name": "RSS G1 Bahia",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "parameters": {
+        "url": "https://g1.globo.com/rss/bahia/"
+      }
+    },
+    {
+      "id": "rss-tec",
+      "name": "RSS G1 Tecnologia",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [250, 500],
+      "parameters": {
+        "url": "https://g1.globo.com/rss/tecnologia/"
+      }
+    },
+    {
+      "id": "rss-esporte",
+      "name": "RSS G1 Esporte",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [250, 700],
+      "parameters": {
+        "url": "https://g1.globo.com/rss/esporte/"
+      }
+    },
+    {
+      "id": "tag-bahia",
+      "name": "Categoria: Bahia",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [450, 300],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "categoria",
+              "value": "Bahia"
+            },
+            {
+              "name": "cor",
+              "value": "#2563eb"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "tag-tec",
+      "name": "Categoria: Tecnologia",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [450, 500],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "categoria",
+              "value": "Tecnologia"
+            },
+            {
+              "name": "cor",
+              "value": "#059669"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "tag-esporte",
+      "name": "Categoria: Esporte",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [450, 700],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "categoria",
+              "value": "Esporte"
+            },
+            {
+              "name": "cor",
+              "value": "#d97706"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "merge",
+      "name": "Merge Tudo",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [650, 500],
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition"
+      }
+    },
+    {
+      "id": "sort",
+      "name": "Ordenar por Data",
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [850, 500],
+      "parameters": {
+        "sortFields": {
+          "fields": [
+            {
+              "fieldName": "isoDate",
+              "fieldValue": "descending"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "webhook",
+      "name": "Webhook Output",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [1050, 500],
+      "parameters": {
+        "httpMethod": "GET",
+        "options": {},
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "path": "g1-noticias"
+      },
+      "webhookId": "g1-noticias"
+    },
+    {
+      "id": "rss-politica",
+      "name": "RSS G1 Politica",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [250, 900],
+      "parameters": {
+        "url": "https://g1.globo.com/rss/politica/"
+      }
+    },
+    {
+      "id": "tag-politica",
+      "name": "Categoria: Politica",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [450, 900],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "categoria",
+              "value": "Politica"
+            },
+            {
+              "name": "cor",
+              "value": "#7c3aed"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "rss-economia",
+      "name": "RSS G1 Economia",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [250, 1100],
+      "parameters": {
+        "url": "https://g1.globo.com/rss/economia/"
+      }
+    },
+    {
+      "id": "tag-economia",
+      "name": "Categoria: Economia",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [450, 1100],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "categoria",
+              "value": "Economia"
+            },
+            {
+              "name": "cor",
+              "value": "#dc2626"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "rss-educacao",
+      "name": "RSS G1 Educacao",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [250, 1300],
+      "parameters": {
+        "url": "https://g1.globo.com/rss/educacao/"
+      }
+    },
+    {
+      "id": "tag-educacao",
+      "name": "Categoria: Educacao",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [450, 1300],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "categoria",
+              "value": "Educacao"
+            },
+            {
+              "name": "cor",
+              "value": "#0891b2"
+            }
+          ]
+        },
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "RSS G1 Bahia": {
+      "main": [[ { "node": "Categoria: Bahia", "type": "main", "index": 0 } ]]
+    },
+    "RSS G1 Tecnologia": {
+      "main": [[ { "node": "Categoria: Tecnologia", "type": "main", "index": 0 } ]]
+    },
+    "RSS G1 Esporte": {
+      "main": [[ { "node": "Categoria: Esporte", "type": "main", "index": 0 } ]]
+    },
+    "RSS G1 Politica": {
+      "main": [[ { "node": "Categoria: Politica", "type": "main", "index": 0 } ]]
+    },
+    "RSS G1 Economia": {
+      "main": [[ { "node": "Categoria: Economia", "type": "main", "index": 0 } ]]
+    },
+    "RSS G1 Educacao": {
+      "main": [[ { "node": "Categoria: Educacao", "type": "main", "index": 0 } ]]
+    },
+    "Categoria: Bahia": {
+      "main": [[ { "node": "Merge Tudo", "type": "main", "index": 0 } ]]
+    },
+    "Categoria: Tecnologia": {
+      "main": [[ { "node": "Merge Tudo", "type": "main", "index": 1 } ]]
+    },
+    "Categoria: Esporte": {
+      "main": [[ { "node": "Merge Tudo", "type": "main", "index": 2 } ]]
+    },
+    "Categoria: Politica": {
+      "main": [[ { "node": "Merge Tudo", "type": "main", "index": 3 } ]]
+    },
+    "Categoria: Economia": {
+      "main": [[ { "node": "Merge Tudo", "type": "main", "index": 4 } ]]
+    },
+    "Categoria: Educacao": {
+      "main": [[ { "node": "Merge Tudo", "type": "main", "index": 5 } ]]
+    },
+    "Merge Tudo": {
+      "main": [[ { "node": "Ordenar por Data", "type": "main", "index": 0 } ]]
+    },
+    "Ordenar por Data": {
+      "main": [[ { "node": "Webhook Output", "type": "main", "index": 0 } ]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [
+    { "name": "G1" },
+    { "name": "Noticias" },
+    { "name": "Automacao" }
+  ]
+}
