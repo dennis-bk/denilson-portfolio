@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Denilson Santos de Lima — Analista de Infraestrutura de TI</title>
-  <meta name="description" content="Analista de Infraestrutura de TI especializado em Redes, Nuvem, Automações e Suporte N2. Lauro de Freitas – BA.">
-  <meta name="keywords" content="Infraestrutura de TI, Redes, Cloud, Docker, Linux, Windows Server, Suporte N2, MikroTik, Zabbix, ITIL">
-  <meta name="author" content="Denilson Santos de Lima">
-  <meta property="og:title" content="Denilson Santos de Lima — Analista de Infraestrutura de TI">
-  <meta property="og:description" content="Redes, Nuvem & Suporte N2. Mais de 8 anos de experiência em infraestrutura corporativa.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Analista de Infraestrutura de TI especializado em Redes, Nuvem, Automações e Suporte N2. Lauro de Freitas – BA.">
+    <meta name="keywords" content="Infraestrutura de TI, Redes, Cloud, Docker, Linux, Windows Server, Suporte N2, MikroTik, Zabbix, ITIL, DevOps, SRE">
+    <meta name="author" content="Denilson Santos de Lima">
+    <meta property="og:title" content="Denilson Santos de Lima — Analista de Infraestrutura de TI">
+    <meta property="og:description" content="Redes, Nuvem & Suporte N2. Mais de 8 anos de experiência em infraestrutura corporativa. Homelab com 15+ containers, automação Windows 11, Zabbix, Cloudflare Tunnels.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://dennis-bk.github.io/denilson-portfolio/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Denilson Santos de Lima — Analista de Infraestrutura de TI">
+    <meta name="twitter:description" content="Redes, Nuvem & Suporte N2. 8+ anos em infraestrutura corporativa. Homelab, automação, observabilidade.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,6 +102,20 @@
       .navbar-links a:hover, .navbar-links a.active { background: rgba(37,99,235,0.12); }
     }
     .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); font-size: 1.3rem; }
+
+    /* ── LANG TOGGLE ── */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 6px; padding: 6px 12px;
+      border-radius: 6px; font-size: 0.8rem; font-weight: 600;
+      background: var(--blue-50); color: var(--blue-700); border: 1px solid var(--blue-200);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .lang-toggle:hover { background: var(--blue-100); }
+    @media (prefers-color-scheme: dark) {
+      .lang-toggle { background: rgba(37,99,235,0.12); color: var(--blue-400); border-color: rgba(37,99,235,0.2); }
+      .lang-toggle:hover { background: rgba(37,99,235,0.2); }
+    }
+    .lang-toggle .lang-current { font-variant-numeric: tabular-nums; }
 
     /* ── HERO ── */
     .hero {
@@ -273,31 +290,44 @@
       <i class="fas fa-bars"></i>
     </button>
     <ul class="navbar-links">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#historia">Minha História</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#publicacoes">Artigos Acadêmicos</a></li>
-      <li><a href="#trajetoria">Trajetória</a></li>
-      <li><a href="#competencias">Competências</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#inicio" data-i18n="nav.home">Início</a></li>
+      <li><a href="#historia" data-i18n="nav.story">Minha História</a></li>
+      <li><a href="#projetos" data-i18n="nav.projects">Projetos</a></li>
+      <li><a href="#publicacoes" data-i18n="nav.publications">Artigos Acadêmicos</a></li>
+      <li><a href="#trajetoria" data-i18n="nav.experience">Trajetória</a></li>
+      <li><a href="#competencias" data-i18n="nav.skills">Competências</a></li>
+      <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
     </ul>
+    <button class="lang-toggle" id="langToggle" aria-label="Alternar idioma" title="Alternar idioma (PT/EN)">
+      <span class="lang-current">PT</span>
+      <i class="fas fa-globe"></i>
+    </button>
   </div>
 </nav>
 
 <!-- ════════════ HERO ════════════ -->
 <header class="hero" id="inicio">
   <div class="hero-content">
-    <h1>Denilson Santos de Lima</h1>
-    <div class="subtitle">Analista de Infraestrutura de TI | Redes, Nuvem & Suporte N2</div>
-    <div class="location"><i class="fas fa-map-marker-alt"></i> Lauro de Freitas – BA &nbsp;|&nbsp; Disponibilidade para Remoto / Híbrido</div>
-    <p class="pitch">
+    <h1 data-i18n="hero.name">Denilson Santos de Lima</h1>
+    <div class="subtitle" data-i18n="hero.title">Analista de Infraestrutura de TI | Redes, Nuvem & Suporte N2</div>
+    <div class="location"><i class="fas fa-map-marker-alt"></i> Lauro de Freitas – BA &nbsp;|&nbsp; <span data-i18n="hero.availability">Disponibilidade para Remoto / Híbrido</span></div>
+    <p class="pitch" data-i18n="hero.pitch">
       Profissional de TI graduado em Computação em Nuvem (UNINASSAU), com mais de 8 anos de experiência prática na sustentação de ambientes de missão crítica, governança corporativa (ITIL / ITSM), redes e automação de rotinas operacionais.
     </p>
+    
+    <!-- Quick Stats / Certifications -->
+    <div class="hero-stats" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:24px;">
+      <span class="badge" style="background:var(--green-100);color:var(--green-700);font-size:0.85rem;padding:8px 16px;" data-i18n="hero.itil"><i class="fas fa-certificate"></i> ITIL 4 Foundation</span>
+      <span class="badge" style="background:var(--blue-100);color:var(--blue-700);font-size:0.85rem;padding:8px 16px;" data-i18n="hero.cloud"><i class="fas fa-cloud"></i> Cloud Computing (UNINASSAU)</span>
+      <span class="badge" style="background:var(--amber-100);color:var(--amber-700);font-size:0.85rem;padding:8px 16px;" data-i18n="hero.exp"><i class="fas fa-briefcase"></i> 8+ Anos Experiência</span>
+      <span class="badge" style="background:var(--purple-100);color:var(--purple-700);font-size:0.85rem;padding:8px 16px;" data-i18n="hero.projects"><i class="fas fa-code"></i> 15+ Containers em Produção</span>
+    </div>
+    
     <div class="hero-ctas">
-      <a href="curriculo.pdf" class="btn btn-download" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Baixar Currículo</a>
-      <a href="https://linkedin.com/in/denilsonsantosdelima" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="https://github.com/dennis-bk" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://wa.me/5571993345802" class="btn btn-success" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="curriculo.pdf" class="btn btn-download" target="_blank" rel="noopener noreferrer" data-i18n="hero.downloadCV"><i class="fas fa-file-pdf"></i> Baixar Currículo</a>
+      <a href="https://linkedin.com/in/denilsonsantosdelima" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="hero.linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/dennis-bk" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="hero.github"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://wa.me/5571993345802" class="btn btn-success" target="_blank" rel="noopener noreferrer" data-i18n="hero.whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
   </div>
 </header>
@@ -306,16 +336,16 @@
 <section class="section section-alt" id="historia">
   <div class="section-inner">
     <div class="section-header">
-      <h2><span class="icon"><i class="fas fa-route"></i></span> Minha História & Trajetória Técnica</h2>
-      <p>Da bancada de hardware a ambientes corporativos de alta criticidade — uma jornada construída na prática e aprimorada com governança.</p>
+      <h2><span class="icon"><i class="fas fa-route"></i></span> <span data-i18n="story.title">Minha História & Trajetória Técnica</span></h2>
+      <p data-i18n="story.subtitle">Da bancada de hardware a ambientes corporativos de alta criticidade — uma jornada construída na prática e aprimorada com governança.</p>
     </div>
     <div class="story-grid">
       <div class="card">
         <div class="story-card">
           <div class="story-icon story-icon-blue"><i class="fas fa-microchip"></i></div>
           <div class="story-text">
-            <h4>Início Precoce</h4>
-            <p>Contato e atuação prática com manutenção, hardware e sistemas operacionais antes dos 14 anos, desenvolvendo sólida visão técnica e compreensão profunda de infraestrutura física.</p>
+            <h4 data-i18n="story.card1.title">Início Precoce</h4>
+            <p data-i18n="story.card1.desc">Contato e atuação prática com manutenção, hardware e sistemas operacionais antes dos 14 anos, desenvolvendo sólida visão técnica e compreensão profunda de infraestrutura física.</p>
           </div>
         </div>
       </div>
@@ -323,8 +353,8 @@
         <div class="story-card">
           <div class="story-icon story-icon-green"><i class="fas fa-network-wired"></i></div>
           <div class="story-text">
-            <h4>Construção de Bagagem</h4>
-            <p>Experiência sólida em campo com suporte a provedores de telecomunicações e fibra óptica, implantação de redes escolares e assistência técnica especializada.</p>
+            <h4 data-i18n="story.card2.title">Construção de Bagagem</h4>
+            <p data-i18n="story.card2.desc">Experiência sólida em campo com suporte a provedores de telecomunicações e fibra óptica, implantação de redes escolares e assistência técnica especializada.</p>
           </div>
         </div>
       </div>
@@ -332,8 +362,8 @@
         <div class="story-card">
           <div class="story-icon story-icon-amber"><i class="fas fa-building"></i></div>
           <div class="story-text">
-            <h4>Atuação Corporativa de Alta Criticidade</h4>
-            <p>Sustentação de ambientes corporativos, governança sob boas práticas ITIL e cumprimento de SLAs na DXC Technology, resolução de incidentes N2 na Login Informática e monitoramento de NOC na Solutis.</p>
+            <h4 data-i18n="story.card3.title">Atuação Corporativa de Alta Criticidade</h4>
+            <p data-i18n="story.card3.desc">Sustentação de ambientes corporativos, governança sob boas práticas ITIL e cumprimento de SLAs na DXC Technology, resolução de incidentes N2 na Login Informática e monitoramento de NOC na Solutis.</p>
           </div>
         </div>
       </div>
@@ -341,8 +371,8 @@
         <div class="story-card">
           <div class="story-icon story-icon-purple"><i class="fas fa-cloud"></i></div>
           <div class="story-text">
-            <h4>Visão Atual</h4>
-            <p>Graduação concluída em Computação em Nuvem (UNINASSAU), implementação de Homelab conteinerizado e desenvolvimento contínuo de automações para ganho de escala e eficiência.</p>
+            <h4 data-i18n="story.card4.title">Visão Atual</h4>
+            <p data-i18n="story.card4.desc">Graduação concluída em Computação em Nuvem (UNINASSAU), implementação de Homelab conteinerizado e desenvolvimento contínuo de automações para ganho de escala e eficiência.</p>
           </div>
         </div>
       </div>
@@ -354,20 +384,20 @@
 <section class="section" id="projetos">
   <div class="section-inner">
     <div class="section-header">
-      <h2><span class="icon"><i class="fas fa-terminal"></i></span> Projetos Técnicos & Automações</h2>
-      <p>Soluções reais para desafios reais — cada projeto desenvolvido a partir de uma necessidade prática de negócio.</p>
+      <h2><span class="icon"><i class="fas fa-terminal"></i></span> <span data-i18n="projects.title">Projetos Técnicos & Automações</span></h2>
+      <p data-i18n="projects.subtitle">Soluções reais para desafios reais — cada projeto desenvolvido a partir de uma necessidade prática de negócio.</p>
     </div>
     <div class="grid-2">
 
       <!-- HOMELAB -->
       <div class="card card-accent-blue">
-        <h3><i class="fas fa-server" style="color:var(--blue-600);margin-right:6px"></i>HOMELAB – Infraestrutura Conteinerizada & Microsserviços</h3>
+        <h3><i class="fas fa-server" style="color:var(--blue-600);margin-right:6px"></i><span data-i18n="projects.homelab.title">HOMELAB – Infraestrutura Conteinerizada & Microsserviços</span></h3>
         <div class="card-sub">Projeto Principal · 2024 – Presente</div>
         <div class="card-desc">
-          <strong>Desafio:</strong> Reproduzir um ambiente corporativo com múltiplos serviços isolados, gerenciáveis e acessíveis remotamente, sem dependência direta de provedores de nuvem pública.
+          <strong data-i18n="projects.homelab.challenge">Desafio:</strong> <span data-i18n="projects.homelab.challengeDesc">Reproduzir um ambiente corporativo com múltiplos serviços isolados, gerenciáveis e acessíveis remotamente, sem dependência direta de provedores de nuvem pública.</span>
         </div>
         <div class="card-desc mt-16">
-          <strong>Solução:</strong> Servidor dedicado (Dell OptiPlex 3000 com Windows Server 2025 e Linux Ubuntu) gerenciando mais de 15 containers Docker com roteamento por Nginx Proxy Manager, isolamento de rede, certificados SSL automatizados e painel de status em tempo real via Portainer e Uptime Kuma.
+          <strong data-i18n="projects.homelab.solution">Solução:</strong> <span data-i18n="projects.homelab.solutionDesc">Servidor dedicado (Dell OptiPlex 3000 com Linux Ubuntu) gerenciando 15+ containers Docker com roteamento por Nginx Proxy Manager, isolamento de rede, certificados SSL automatizados e painel de status em tempo real via Portainer e Uptime Kuma.</span>
         </div>
         <div class="tags">
           <span class="tag">Linux (Ubuntu)</span>
@@ -377,18 +407,23 @@
           <span class="tag">Uptime Kuma</span>
           <span class="tag">Homepage</span>
           <span class="tag">n8n</span>
+          <span class="tag">Cloudflare Tunnels</span>
+        </div>
+        <div class="project-links mt-16" style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://github.com/dennis-bk/homelab-n8n-docker-automation" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:8px 16px;font-size:0.85rem;"><i class="fab fa-github"></i> <span data-i18n="projects.viewCode">Ver Código</span></a>
+          <a href="https://github.com/dennis-bk/kamba_site" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:8px 16px;font-size:0.85rem;"><i class="fas fa-newspaper"></i> <span data-i18n="projects.kambaSite">Kamba Notícias</span></a>
         </div>
       </div>
 
       <!-- ZABBIX -->
       <div class="card card-accent-green">
-        <h3><i class="fas fa-chart-line" style="color:var(--green-600);margin-right:6px"></i>Monitoramento & Observabilidade Proativa</h3>
+        <h3><i class="fas fa-chart-line" style="color:var(--green-600);margin-right:6px"></i><span data-i18n="projects.zabbix.title">Monitoramento & Observabilidade Proativa</span></h3>
         <div class="card-sub">Stack Zabbix · 2026</div>
         <div class="card-desc">
-          <strong>Desafio:</strong> Implementar visibilidade de ponta a ponta sobre servidores e serviços críticos, com alertas imediatos e auto-recuperação de processos sem custos de licenciamento.
+          <strong data-i18n="projects.zabbix.challenge">Desafio:</strong> <span data-i18n="projects.zabbix.challengeDesc">Implementar visibilidade de ponta a ponta sobre servidores e serviços críticos, com alertas imediatos e auto-recuperação de processos sem custos de licenciamento.</span>
         </div>
         <div class="card-desc mt-16">
-          <strong>Solução:</strong> Implantação da stack completa do Zabbix 7.0 (Server, Web, Agent e MariaDB) associada a rotinas de monitoramento em Shell Script para auto-recuperação de serviços e disparo de alertas instantâneos via bot do Telegram.
+          <strong data-i18n="projects.zabbix.solution">Solução:</strong> <span data-i18n="projects.zabbix.solutionDesc">Implantação da stack completa do Zabbix 7.0 (Server, Web, Agent e MariaDB) associada a rotinas de monitoramento em Shell Script para auto-recuperação de serviços e disparo de alertas instantâneos via bot do Telegram.</span>
         </div>
         <div class="tags">
           <span class="tag">Zabbix 7.0</span>
@@ -397,17 +432,20 @@
           <span class="tag">Webhooks</span>
           <span class="tag">Telegram API</span>
         </div>
+        <div class="project-links mt-16" style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://github.com/dennis-bk" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:8px 16px;font-size:0.85rem;"><i class="fab fa-github"></i> <span data-i18n="projects.viewCode">Ver Código</span></a>
+        </div>
       </div>
 
       <!-- WINDOWS 11 -->
       <div class="card card-accent-amber">
-        <h3><i class="fab fa-windows" style="color:var(--amber-600);margin-right:6px"></i>Automação de Provisionamento e Deploy (Windows 11)</h3>
+        <h3><i class="fab fa-windows" style="color:var(--amber-600);margin-right:6px"></i><span data-i18n="projects.win11.title">Automação de Provisionamento e Deploy (Windows 11)</span></h3>
         <div class="card-sub">PowerShell · Corporativo · 2026</div>
         <div class="card-desc">
-          <strong>Desafio:</strong> Reduzir significativamente o tempo de configuração de estações de trabalho corporativas, eliminando etapas repetitivas de pós-instalação manual.
+          <strong data-i18n="projects.win11.challenge">Desafio:</strong> <span data-i18n="projects.win11.challengeDesc">Reduzir significativamente o tempo de configuração de estações de trabalho corporativas, eliminando etapas repetitivas de pós-instalação manual.</span>
         </div>
         <div class="card-desc mt-16">
-          <strong>Solução:</strong> Kit completo com mídia de instalação USB bootável (UEFI/BIOS), arquivo de resposta autounattend.xml, integração de drivers Intel RST VMD e 11 scripts em PowerShell para automatizar criação de usuários, nomenclatura de máquinas, diretivas IPv6 e instalação em lote de softwares essenciais.
+          <strong data-i18n="projects.win11.solution">Solução:</strong> <span data-i18n="projects.win11.solutionDesc">Kit completo com mídia de instalação USB bootável (UEFI/BIOS), arquivo de resposta autounattend.xml, integração de drivers Intel RST VMD e 11 scripts em PowerShell para automatizar criação de usuários, nomenclatura de máquinas, diretivas IPv6 e instalação em lote de softwares essenciais. <strong>Resultado: deploy de ~45min → ~8min por estação.</strong></span>
         </div>
         <div class="tags">
           <span class="tag">PowerShell</span>
@@ -416,17 +454,20 @@
           <span class="tag">Autounattend</span>
           <span class="tag">Deploy Automatizado</span>
         </div>
+        <div class="project-links mt-16" style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://github.com/dennis-bk" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:8px 16px;font-size:0.85rem;"><i class="fab fa-github"></i> <span data-i18n="projects.viewCode">Ver Código</span></a>
+        </div>
       </div>
 
       <!-- CLOUDFLARE -->
       <div class="card card-accent-purple">
-        <h3><i class="fas fa-shield-alt" style="color:var(--purple-600);margin-right:6px"></i>Segurança de Borda & Infraestrutura Web</h3>
+        <h3><i class="fas fa-shield-alt" style="color:var(--purple-600);margin-right:6px"></i><span data-i18n="projects.cloudflare.title">Segurança de Borda & Infraestrutura Web</span></h3>
         <div class="card-sub">Cloudflare Tunnels · 2025 – Presente</div>
         <div class="card-desc">
-          <strong>Desafio:</strong> Publicar aplicações e serviços locais na internet de forma segura, sem expor portas do roteador (NAT) e garantindo proteção perimetral.
+          <strong data-i18n="projects.cloudflare.challenge">Desafio:</strong> <span data-i18n="projects.cloudflare.challengeDesc">Publicar aplicações e serviços locais na internet de forma segura, sem expor portas do roteador (NAT) e garantindo proteção perimetral.</span>
         </div>
         <div class="card-desc mt-16">
-          <strong>Solução:</strong> Conexão segura via Cloudflare Tunnels integrando serviços locais diretamente à nuvem, com resolução de DNS criptografado, emissão automática de certificados SSL/HTTPS e proteção ativa contra ataques de negação de serviço (DDoS).
+          <strong data-i18n="projects.cloudflare.solution">Solução:</strong> <span data-i18n="projects.cloudflare.solutionDesc">Conexão segura via Cloudflare Tunnels integrando serviços locais diretamente à nuvem, com resolução de DNS criptografado, emissão automática de certificados SSL/HTTPS e proteção ativa contra ataques de negação de serviço (DDoS).</span>
         </div>
         <div class="tags">
           <span class="tag">Cloudflare Tunnels</span>
@@ -434,6 +475,9 @@
           <span class="tag">SSL/HTTPS</span>
           <span class="tag">Python</span>
           <span class="tag">FastAPI/Flask</span>
+        </div>
+        <div class="project-links mt-16" style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://github.com/dennis-bk" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:8px 16px;font-size:0.85rem;"><i class="fab fa-github"></i> <span data-i18n="projects.viewCode">Ver Código</span></a>
         </div>
       </div>
 
@@ -445,41 +489,41 @@
 <section class="section section-alt" id="publicacoes">
   <div class="section-inner">
     <div class="section-header">
-      <h2><span class="icon"><i class="fas fa-pen-fancy"></i></span> Publicações, Ensaios & Projetos Acadêmicos</h2>
-      <p>Produção acadêmica e visão de impacto social desenvolvidas durante a graduação na UNINASSAU.</p>
+      <h2><span class="icon"><i class="fas fa-pen-fancy"></i></span> <span data-i18n="publications.title">Publicações, Ensaios & Projetos Acadêmicos</span></h2>
+      <p data-i18n="publications.subtitle">Produção acadêmica e visão de impacto social desenvolvidas durante a graduação na UNINASSAU.</p>
     </div>
     <div class="grid-3">
 
       <div class="card card-accent-blue">
-        <h3>Empoderamento da Juventude Preta na Bahia Através da Tecnologia</h3>
-        <div class="card-sub">Ensaio & Proposta de Inclusão</div>
-        <div class="card-desc">Análise sobre a democratização do acesso à tecnologia, inserção de jovens negros baianos no mercado digital, superação da exclusão digital e o papel da educação técnica como agente de transformação social.</div>
+        <h3 data-i18n="pub1.title">Empoderamento da Juventude Preta na Bahia Através da Tecnologia</h3>
+        <div class="card-sub" data-i18n="pub1.sub">Ensaio & Proposta de Inclusão</div>
+        <div class="card-desc" data-i18n="pub1.desc">Análise sobre a democratização do acesso à tecnologia, inserção de jovens negros baianos no mercado digital, superação da exclusão digital e o papel da educação técnica como agente de transformação social.</div>
         <div class="tags">
-          <span class="tag">Inclusão Digital</span>
-          <span class="tag">Impacto Social</span>
-          <span class="tag">Tecnologia & Cidadania</span>
+          <span class="tag" data-i18n="pub1.tag1">Inclusão Digital</span>
+          <span class="tag" data-i18n="pub1.tag2">Impacto Social</span>
+          <span class="tag" data-i18n="pub1.tag3">Tecnologia & Cidadania</span>
         </div>
       </div>
 
       <div class="card card-accent-green">
-        <h3>Segurança para Todos</h3>
-        <div class="card-sub">Projeto Acadêmico</div>
-        <div class="card-desc">Projeto voltado à conscientização sobre segurança da informação, proteção e privacidade de dados pessoais e boas práticas de higiene cibernética para usuários e organizações.</div>
+        <h3 data-i18n="pub2.title">Segurança para Todos</h3>
+        <div class="card-sub" data-i18n="pub2.sub">Projeto Acadêmico</div>
+        <div class="card-desc" data-i18n="pub2.desc">Projeto voltado à conscientização sobre segurança da informação, proteção e privacidade de dados pessoais e boas práticas de higiene cibernética para usuários e organizações.</div>
         <div class="tags">
-          <span class="tag tag-green">Cibersegurança</span>
-          <span class="tag tag-green">Privacidade de Dados</span>
-          <span class="tag tag-green">Governança</span>
+          <span class="tag tag-green" data-i18n="pub2.tag1">Cibersegurança</span>
+          <span class="tag tag-green" data-i18n="pub2.tag2">Privacidade de Dados</span>
+          <span class="tag tag-green" data-i18n="pub2.tag3">Governança</span>
         </div>
       </div>
 
       <div class="card card-accent-amber">
-        <h3>Quebre a Roda e Mude sua Realidade</h3>
-        <div class="card-sub">Estudo & Capacitação Profissional</div>
-        <div class="card-desc">Estudo centrado na capacitação técnica como ferramenta de superação de barreiras socioeconômicas e no impacto do aprendizado contínuo na formação de novos profissionais de tecnologia.</div>
+        <h3 data-i18n="pub3.title">Quebre a Roda e Mude sua Realidade</h3>
+        <div class="card-sub" data-i18n="pub3.sub">Estudo & Capacitação Profissional</div>
+        <div class="card-desc" data-i18n="pub3.desc">Estudo centrado na capacitação técnica como ferramenta de superação de barreiras socioeconômicas e no impacto do aprendizado contínuo na formação de novos profissionais de tecnologia.</div>
         <div class="tags">
-          <span class="tag tag-amber">Capacitação Técnica</span>
-          <span class="tag tag-amber">Educação Tech</span>
-          <span class="tag tag-amber">Desenvolvimento Profissional</span>
+          <span class="tag tag-amber" data-i18n="pub3.tag1">Capacitação Técnica</span>
+          <span class="tag tag-amber" data-i18n="pub3.tag2">Educação Tech</span>
+          <span class="tag tag-amber" data-i18n="pub3.tag3">Desenvolvimento Profissional</span>
         </div>
       </div>
 
@@ -491,8 +535,8 @@
 <section class="section" id="trajetoria">
   <div class="section-inner">
     <div class="section-header">
-      <h2><span class="icon"><i class="fas fa-briefcase"></i></span> Experiência Profissional</h2>
-      <p>Histórico corporativo — do suporte presencial especializado à sustentação de ambientes críticos.</p>
+      <h2><span class="icon"><i class="fas fa-briefcase"></i></span> <span data-i18n="experience.title">Experiência Profissional</span></h2>
+      <p data-i18n="experience.subtitle">Histórico corporativo — do suporte presencial especializado à sustentação de ambientes críticos.</p>
     </div>
 
     <div class="timeline">
@@ -557,13 +601,13 @@
 <section class="section section-alt" id="competencias">
   <div class="section-inner">
     <div class="section-header">
-      <h2><span class="icon"><i class="fas fa-cogs"></i></span> Competências & Formação Técnica</h2>
-      <p>Habilidades consolidadas por domínios de especialização.</p>
+      <h2><span class="icon"><i class="fas fa-cogs"></i></span> <span data-i18n="skills.title">Competências & Formação Técnica</span></h2>
+      <p data-i18n="skills.subtitle">Habilidades consolidadas por domínios de especialização.</p>
     </div>
 
     <div class="badge-grid mb-16">
       <div class="badge-category">
-        <h4><i class="fas fa-database" style="color:var(--blue-600)"></i> Infraestrutura & Sistemas Operacionais</h4>
+        <h4><i class="fas fa-database" style="color:var(--blue-600)"></i> <span data-i18n="skills.infra">Infraestrutura & Sistemas Operacionais</span></h4>
         <div class="badge-list">
           <span class="badge">Linux (Ubuntu/Debian)</span>
           <span class="badge">Windows Server</span>
@@ -573,7 +617,7 @@
         </div>
       </div>
       <div class="badge-category">
-        <h4><i class="fas fa-shield-alt" style="color:var(--green-600)"></i> Redes & Segurança</h4>
+        <h4><i class="fas fa-shield-alt" style="color:var(--green-600)"></i> <span data-i18n="skills.network">Redes & Segurança</span></h4>
         <div class="badge-list">
           <span class="badge">Protocolos TCP/IP</span>
           <span class="badge">VPNs Corporativas</span>
@@ -583,7 +627,7 @@
         </div>
       </div>
       <div class="badge-category">
-        <h4><i class="fas fa-cloud" style="color:var(--amber-600)"></i> Nuvem, Containers & Virtualização</h4>
+        <h4><i class="fas fa-cloud" style="color:var(--amber-600)"></i> <span data-i18n="skills.cloud">Nuvem, Containers & Virtualização</span></h4>
         <div class="badge-list">
           <span class="badge">Docker</span>
           <span class="badge">Portainer</span>
@@ -593,7 +637,7 @@
         </div>
       </div>
       <div class="badge-category">
-        <h4><i class="fas fa-clipboard-list" style="color:var(--purple-600)"></i> Governança & Processos ITSM</h4>
+        <h4><i class="fas fa-clipboard-list" style="color:var(--purple-600)"></i> <span data-i18n="skills.governance">Governança & Processos ITSM</span></h4>
         <div class="badge-list">
           <span class="badge">ITIL 4 Foundation</span>
           <span class="badge">ServiceNow</span>
@@ -603,7 +647,7 @@
         </div>
       </div>
       <div class="badge-category">
-        <h4><i class="fas fa-code" style="color:var(--red-600)"></i> Automação & Scripting</h4>
+        <h4><i class="fas fa-code" style="color:var(--red-600)"></i> <span data-i18n="skills.automation">Automação & Scripting</span></h4>
         <div class="badge-list">
           <span class="badge">PowerShell</span>
           <span class="badge">Bash</span>
@@ -614,18 +658,18 @@
     </div>
 
     <div class="section-header mt-24">
-      <h2><i class="fas fa-graduation-cap" style="color:var(--blue-600);font-size:0.95em"></i> Formação Acadêmica & Capacitação Contínua</h2>
+      <h2><i class="fas fa-graduation-cap" style="color:var(--blue-600);font-size:0.95em"></i> <span data-i18n="skills.education.title">Formação Acadêmica & Capacitação Contínua</span></h2>
     </div>
     <div class="grid-2">
       <div class="card card-accent-blue">
-        <h3>Graduação Tecnológica em Computação em Nuvem</h3>
-        <div class="card-sub">UNINASSAU · Concluído em 2025</div>
-        <div class="card-desc">Carga horária de 2.050 horas com foco em arquitetura de nuvem, segurança da informação, redes de computadores, DevOps, governança de TI e sustentação de serviços distribuídos.</div>
+        <h3 data-i18n="skills.degree.title">Graduação Tecnológica em Computação em Nuvem</h3>
+        <div class="card-sub" data-i18n="skills.degree.sub">UNINASSAU · Concluído em 2025</div>
+        <div class="card-desc" data-i18n="skills.degree.desc">Carga horária de 2.050 horas com foco em arquitetura de nuvem, segurança da informação, redes de computadores, DevOps, governança de TI e sustentação de serviços distribuídos.</div>
       </div>
       <div class="card card-accent-amber">
-        <h3>Treinamentos & Fundamentos Práticos</h3>
-        <div class="card-sub">Capacitação Contínua (2014 – 2026)</div>
-        <div class="card-desc">Mais de 540 horas documentadas em treinamentos aplicados: ITIL 4 Foundation, processos ITSM em Service Desk (ServiceNow/GLPI), fundamentos Microsoft 365 / Segurança e práticas de computação em nuvem AWS.</div>
+        <h3 data-i18n="skills.training.title">Treinamentos & Fundamentos Práticos</h3>
+        <div class="card-sub" data-i18n="skills.training.sub">Capacitação Contínua (2014 – 2026)</div>
+        <div class="card-desc" data-i18n="skills.training.desc">Mais de 540 horas documentadas em treinamentos aplicados: ITIL 4 Foundation, processos ITSM em Service Desk (ServiceNow/GLPI), fundamentos Microsoft 365 / Segurança e práticas de computação em nuvem AWS.</div>
       </div>
     </div>
   </div>
@@ -641,9 +685,236 @@
       <a href="mailto:denilsonsdl0@gmail.com"><i class="fas fa-envelope"></i> E-mail</a>
     </div>
     <p>Denilson Santos de Lima · Lauro de Freitas – BA</p>
-    <p style="margin-top:8px">Infraestrutura Própria · 2026 · <a href="https://github.com/dennis-bk/denilson-portfolio" target="_blank" rel="noopener noreferrer" style="color:var(--blue-400)"><i class="fab fa-github"></i> Código-fonte deste portfólio</a></p>
+    <p style="margin-top:8px">Infraestrutura Própria · 2026 · <a href="https://github.com/dennis-bk/denilson-portfolio" target="_blank" rel="noopener noreferrer" style="color:var(--blue-400)"><i class="fab fa-github"></i> <span data-i18n="footer.sourceCode">Código-fonte deste portfólio</span></a></p>
   </div>
 </footer>
+
+<!-- ════════════ I18N TRANSLATIONS ════════════ -->
+<script>
+const translations = {
+  pt: {
+    "nav.home": "Início",
+    "nav.story": "Minha História",
+    "nav.projects": "Projetos",
+    "nav.publications": "Artigos Acadêmicos",
+    "nav.experience": "Trajetória",
+    "nav.skills": "Competências",
+    "nav.contact": "Contato",
+    "hero.name": "Denilson Santos de Lima",
+    "hero.title": "Analista de Infraestrutura de TI | Redes, Nuvem & Suporte N2",
+    "hero.availability": "Disponibilidade para Remoto / Híbrido",
+    "hero.pitch": "Profissional de TI graduado em Computação em Nuvem (UNINASSAU), com mais de 8 anos de experiência prática na sustentação de ambientes de missão crítica, governança corporativa (ITIL / ITSM), redes e automação de rotinas operacionais.",
+    "hero.itil": "ITIL 4 Foundation",
+    "hero.cloud": "Cloud Computing (UNINASSAU)",
+    "hero.exp": "8+ Anos Experiência",
+    "hero.projects": "15+ Containers em Produção",
+    "hero.downloadCV": "Baixar Currículo",
+    "hero.linkedin": "LinkedIn",
+    "hero.github": "GitHub",
+    "hero.whatsapp": "WhatsApp",
+    "projects.title": "Projetos Técnicos & Automações",
+    "projects.subtitle": "Soluções reais para desafios reais — cada projeto desenvolvido a partir de uma necessidade prática de negócio.",
+    "projects.homelab.title": "HOMELAB – Infraestrutura Conteinerizada & Microsserviços",
+    "projects.homelab.challenge": "Desafio:",
+    "projects.homelab.challengeDesc": "Reproduzir um ambiente corporativo com múltiplos serviços isolados, gerenciáveis e acessíveis remotamente, sem dependência direta de provedores de nuvem pública.",
+    "projects.homelab.solution": "Solução:",
+    "projects.homelab.solutionDesc": "Servidor dedicado (Dell OptiPlex 3000 com Linux Ubuntu) gerenciando 15+ containers Docker com roteamento por Nginx Proxy Manager, isolamento de rede, certificados SSL automatizados e painel de status em tempo real via Portainer e Uptime Kuma.",
+    "projects.zabbix.title": "Monitoramento & Observabilidade Proativa",
+    "projects.zabbix.challenge": "Desafio:",
+    "projects.zabbix.challengeDesc": "Implementar visibilidade de ponta a ponta sobre servidores e serviços críticos, com alertas imediatos e auto-recuperação de processos sem custos de licenciamento.",
+    "projects.zabbix.solution": "Solução:",
+    "projects.zabbix.solutionDesc": "Implantação da stack completa do Zabbix 7.0 (Server, Web, Agent e MariaDB) associada a rotinas de monitoramento em Shell Script para auto-recuperação de serviços e disparo de alertas instantâneos via bot do Telegram.",
+    "projects.win11.title": "Automação de Provisionamento e Deploy (Windows 11)",
+    "projects.win11.challenge": "Desafio:",
+    "projects.win11.challengeDesc": "Reduzir significativamente o tempo de configuração de estações de trabalho corporativas, eliminando etapas repetitivas de pós-instalação manual.",
+    "projects.win11.solution": "Solução:",
+    "projects.win11.solutionDesc": "Kit completo com mídia de instalação USB bootável (UEFI/BIOS), arquivo de resposta autounattend.xml, integração de drivers Intel RST VMD e 11 scripts em PowerShell para automatizar criação de usuários, nomenclatura de máquinas, diretivas IPv6 e instalação em lote de softwares essenciais. <strong>Resultado: deploy de ~45min → ~8min por estação.</strong>",
+    "projects.cloudflare.title": "Segurança de Borda & Infraestrutura Web",
+    "projects.cloudflare.challenge": "Desafio:",
+    "projects.cloudflare.challengeDesc": "Publicar aplicações e serviços locais na internet de forma segura, sem expor portas do roteador (NAT) e garantindo proteção perimetral.",
+    "projects.cloudflare.solution": "Solução:",
+    "projects.cloudflare.solutionDesc": "Conexão segura via Cloudflare Tunnels integrando serviços locais diretamente à nuvem, com resolução de DNS criptografado, emissão automática de certificados SSL/HTTPS e proteção ativa contra ataques de negação de serviço (DDoS).",
+    "projects.viewCode": "Ver Código",
+    "projects.kambaSite": "Kamba Notícias",
+    "story.title": "Minha História & Trajetória Técnica",
+    "story.subtitle": "Da bancada de hardware a ambientes corporativos de alta criticidade — uma jornada construída na prática e aprimorada com governança.",
+    "story.card1.title": "Início Precoce",
+    "story.card1.desc": "Contato e atuação prática com manutenção, hardware e sistemas operacionais antes dos 14 anos, desenvolvendo sólida visão técnica e compreensão profunda de infraestrutura física.",
+    "story.card2.title": "Construção de Bagagem",
+    "story.card2.desc": "Experiência sólida em campo com suporte a provedores de telecomunicações e fibra óptica, implantação de redes escolares e assistência técnica especializada.",
+    "story.card3.title": "Atuação Corporativa de Alta Criticidade",
+    "story.card3.desc": "Sustentação de ambientes corporativos, governança sob boas práticas ITIL e cumprimento de SLAs na DXC Technology, resolução de incidentes N2 na Login Informática e monitoramento de NOC na Solutis.",
+    "story.card4.title": "Visão Atual",
+    "story.card4.desc": "Graduação concluída em Computação em Nuvem (UNINASSAU), implementação de Homelab conteinerizado e desenvolvimento contínuo de automações para ganho de escala e eficiência.",
+    "publications.title": "Publicações, Ensaios & Projetos Acadêmicos",
+    "publications.subtitle": "Produção acadêmica e visão de impacto social desenvolvidas durante a graduação na UNINASSAU.",
+    "pub1.title": "Empoderamento da Juventude Preta na Bahia Através da Tecnologia",
+    "pub1.sub": "Ensaio & Proposta de Inclusão",
+    "pub1.desc": "Análise sobre a democratização do acesso à tecnologia, inserção de jovens negros baianos no mercado digital, superação da exclusão digital e o papel da educação técnica como agente de transformação social.",
+    "pub1.tag1": "Inclusão Digital",
+    "pub1.tag2": "Impacto Social",
+    "pub1.tag3": "Tecnologia & Cidadania",
+    "pub2.title": "Segurança para Todos",
+    "pub2.sub": "Projeto Acadêmico",
+    "pub2.desc": "Projeto voltado à conscientização sobre segurança da informação, proteção e privacidade de dados pessoais e boas práticas de higiene cibernética para usuários e organizações.",
+    "pub2.tag1": "Cibersegurança",
+    "pub2.tag2": "Privacidade de Dados",
+    "pub2.tag3": "Governança",
+    "pub3.title": "Quebre a Roda e Mude sua Realidade",
+    "pub3.sub": "Estudo & Capacitação Profissional",
+    "pub3.desc": "Estudo centrado na capacitação técnica como ferramenta de superação de barreiras socioeconômicas e no impacto do aprendizado contínuo na formação de novos profissionais de tecnologia.",
+    "pub3.tag1": "Capacitação Técnica",
+    "pub3.tag2": "Educação Tech",
+    "pub3.tag3": "Desenvolvimento Profissional",
+    "experience.title": "Experiência Profissional",
+    "experience.subtitle": "Histórico corporativo — do suporte presencial especializado à sustentação de ambientes críticos.",
+    "skills.title": "Competências & Formação Técnica",
+    "skills.subtitle": "Habilidades consolidadas por domínios de especialização.",
+    "skills.infra": "Infraestrutura & Sistemas Operacionais",
+    "skills.network": "Redes & Segurança",
+    "skills.cloud": "Nuvem, Containers & Virtualização",
+    "skills.governance": "Governança & Processos ITSM",
+    "skills.automation": "Automação & Scripting",
+    "skills.education.title": "Formação Acadêmica & Capacitação Contínua",
+    "skills.degree.title": "Graduação Tecnológica em Computação em Nuvem",
+    "skills.degree.sub": "UNINASSAU · Concluído em 2025",
+    "skills.degree.desc": "Carga horária de 2.050 horas com foco em arquitetura de nuvem, segurança da informação, redes de computadores, DevOps, governança de TI e sustentação de serviços distribuídos.",
+    "skills.training.title": "Treinamentos & Fundamentos Práticos",
+    "skills.training.sub": "Capacitação Contínua (2014 – 2026)",
+    "skills.training.desc": "Mais de 540 horas documentadas em treinamentos aplicados: ITIL 4 Foundation, processos ITSM em Service Desk (ServiceNow/GLPI), fundamentos Microsoft 365 / Segurança e práticas de computação em nuvem AWS.",
+    "footer.sourceCode": "Código-fonte deste portfólio"
+  },
+  en: {
+    "nav.home": "Home",
+    "nav.story": "My Story",
+    "nav.projects": "Projects",
+    "nav.publications": "Academic Publications",
+    "nav.experience": "Experience",
+    "nav.skills": "Skills",
+    "nav.contact": "Contact",
+    "hero.name": "Denilson Santos de Lima",
+    "hero.title": "IT Infrastructure Analyst | Networks, Cloud & N2 Support",
+    "hero.availability": "Available for Remote / Hybrid",
+    "hero.pitch": "IT professional graduated in Cloud Computing (UNINASSAU), with over 8 years of hands-on experience sustaining mission-critical environments, corporate governance (ITIL/ITSM), networks, and operational automation.",
+    "hero.itil": "ITIL 4 Foundation",
+    "hero.cloud": "Cloud Computing (UNINASSAU)",
+    "hero.exp": "8+ Years Experience",
+    "hero.projects": "15+ Containers in Production",
+    "hero.downloadCV": "Download CV",
+    "hero.linkedin": "LinkedIn",
+    "hero.github": "GitHub",
+    "hero.whatsapp": "WhatsApp",
+    "projects.title": "Technical Projects & Automations",
+    "projects.subtitle": "Real solutions for real challenges — each project built from a practical business need.",
+    "projects.homelab.title": "HOMELAB – Containerized Infrastructure & Microservices",
+    "projects.homelab.challenge": "Challenge:",
+    "projects.homelab.challengeDesc": "Replicate a corporate environment with multiple isolated, manageable, and remotely accessible services without direct dependency on public cloud providers.",
+    "projects.homelab.solution": "Solution:",
+    "projects.homelab.solutionDesc": "Dedicated server (Dell OptiPlex 3000 with Linux Ubuntu) managing 15+ Docker containers with Nginx Proxy Manager routing, network isolation, automated SSL certificates, and real-time status dashboard via Portainer and Uptime Kuma.",
+    "projects.zabbix.title": "Monitoring & Proactive Observability",
+    "projects.zabbix.challenge": "Challenge:",
+    "projects.zabbix.challengeDesc": "Implement end-to-end visibility over critical servers and services with immediate alerts and process auto-recovery at zero licensing cost.",
+    "projects.zabbix.solution": "Solution:",
+    "projects.zabbix.solutionDesc": "Full Zabbix 7.0 stack deployment (Server, Web, Agent, MariaDB) paired with Shell Script monitoring routines for service auto-recovery and instant Telegram bot alerts.",
+    "projects.win11.title": "Windows 11 Provisioning & Deploy Automation",
+    "projects.win11.challenge": "Challenge:",
+    "projects.win11.challengeDesc": "Significantly reduce corporate workstation setup time by eliminating repetitive manual post-install steps.",
+    "projects.win11.solution": "Solution:",
+    "projects.win11.solutionDesc": "Complete kit with bootable USB media (UEFI/BIOS), autounattend.xml answer file, Intel RST VMD driver integration, and 11 PowerShell scripts automating user creation, machine naming, IPv6 policies, and bulk essential software installation. <strong>Result: deploy from ~45min → ~8min per workstation.</strong>",
+    "projects.cloudflare.title": "Edge Security & Web Infrastructure",
+    "projects.cloudflare.challenge": "Challenge:",
+    "projects.cloudflare.challengeDesc": "Publish local applications and services securely to the internet without exposing router ports (NAT) while ensuring perimeter protection.",
+    "projects.cloudflare.solution": "Solution:",
+    "projects.cloudflare.solutionDesc": "Secure connection via Cloudflare Tunnels integrating local services directly to the cloud, with encrypted DNS resolution, automated SSL/HTTPS certificates, and active DDoS protection.",
+    "projects.viewCode": "View Code",
+    "projects.kambaSite": "Kamba News",
+    "story.title": "My Story & Technical Journey",
+    "story.subtitle": "From hardware bench to high-criticality corporate environments — a journey built in practice and refined with governance.",
+    "story.card1.title": "Early Start",
+    "story.card1.desc": "Hands-on contact with maintenance, hardware, and operating systems before age 14, developing solid technical vision and deep understanding of physical infrastructure.",
+    "story.card2.title": "Building Experience",
+    "story.card2.desc": "Solid field experience supporting telecom providers and fiber optics, school network deployment, and specialized technical assistance.",
+    "story.card3.title": "High-Criticality Corporate Roles",
+    "story.card3.desc": "Sustaining corporate environments, ITIL-governed practices, SLA compliance at DXC Technology, N2 incident resolution at Login Informática, and NOC monitoring at Solutis.",
+    "story.card4.title": "Current Vision",
+    "story.card4.desc": "Cloud Computing degree completed (UNINASSAU), containerized Homelab implementation, and continuous automation development for scale and efficiency gains.",
+    "publications.title": "Publications, Essays & Academic Projects",
+    "publications.subtitle": "Academic production and social impact vision developed during graduation at UNINASSAU.",
+    "pub1.title": "Empowering Black Youth in Bahia Through Technology",
+    "pub1.sub": "Essay & Inclusion Proposal",
+    "pub1.desc": "Analysis on democratizing technology access, inserting Black Bahian youth into the digital market, overcoming digital exclusion, and the role of technical education as a social transformation agent.",
+    "pub1.tag1": "Digital Inclusion",
+    "pub1.tag2": "Social Impact",
+    "pub1.tag3": "Technology & Citizenship",
+    "pub2.title": "Security for Everyone",
+    "pub2.sub": "Academic Project",
+    "pub2.desc": "Project focused on information security awareness, personal data protection and privacy, and cyber hygiene best practices for users and organizations.",
+    "pub2.tag1": "Cybersecurity",
+    "pub2.tag2": "Data Privacy",
+    "pub2.tag3": "Governance",
+    "pub3.title": "Break the Wheel and Change Your Reality",
+    "pub3.sub": "Study & Professional Development",
+    "pub3.desc": "Study centered on technical upskilling as a tool to overcome socioeconomic barriers and the impact of continuous learning on forming new technology professionals.",
+    "pub3.tag1": "Technical Upskilling",
+    "pub3.tag2": "Tech Education",
+    "pub3.tag3": "Professional Development",
+    "experience.title": "Professional Experience",
+    "experience.subtitle": "Corporate history — from specialized on-site support to critical environment sustainability.",
+    "skills.title": "Competencies & Technical Training",
+    "skills.subtitle": "Skills consolidated by specialization domains.",
+    "skills.infra": "Infrastructure & Operating Systems",
+    "skills.network": "Networks & Security",
+    "skills.cloud": "Cloud, Containers & Virtualization",
+    "skills.governance": "Governance & ITSM Processes",
+    "skills.automation": "Automation & Scripting",
+    "skills.education.title": "Academic Education & Continuous Training",
+    "skills.degree.title": "Technological Degree in Cloud Computing",
+    "skills.degree.sub": "UNINASSAU · Completed 2025",
+    "skills.degree.desc": "2,050-hour curriculum focused on cloud architecture, information security, computer networks, DevOps, IT governance, and distributed services sustainability.",
+    "skills.training.title": "Training & Practical Fundamentals",
+    "skills.training.sub": "Continuous Training (2014 – 2026)",
+    "skills.training.desc": "Over 540 documented hours in applied training: ITIL 4 Foundation, ITSM processes in Service Desk (ServiceNow/GLPI), Microsoft 365 / Security fundamentals, and AWS cloud computing practices.",
+    "footer.sourceCode": "Portfolio source code"
+  }
+};
+
+let currentLang = 'pt';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  
+  // Update all elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  
+  // Update language toggle button
+  const toggle = document.getElementById('langToggle');
+  if (toggle) {
+    toggle.querySelector('.lang-current').textContent = lang === 'pt' ? 'PT' : 'EN';
+    toggle.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para Português');
+    toggle.title = lang === 'pt' ? 'Switch to English' : 'Mudar para Português';
+  }
+  
+  // Save preference
+  localStorage.setItem('portfolio-lang', lang);
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('portfolio-lang') || 'pt';
+  setLanguage(savedLang);
+  
+  const toggle = document.getElementById('langToggle');
+  toggle.addEventListener('click', () => {
+    setLanguage(currentLang === 'pt' ? 'en' : 'pt');
+  });
+});
+</script>
 
 <script>
   // Destaque de navegação conforme a rolagem da página
